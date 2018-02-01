@@ -18,8 +18,8 @@ public class ArrayListMethod
 				break;
 		}
 		arraylist.add(2,25);
-		arraylist.remove(1);
-		//arraylist.remove((Object)25);
+		arraylist.remove(1);//index
+		arraylist.remove((Object)25);//element
 		//boolean exist = arraylist.contains(5);
 		for(int i=0;i<arraylist.size();i++)
 			System.out.print(arraylist.get(i)+" ");
