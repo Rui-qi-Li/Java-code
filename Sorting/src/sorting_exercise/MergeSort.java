@@ -1,7 +1,13 @@
 package sorting_exercise;
 import java.util.*;
 
-public class margeSort{
+/**
+ * The MergeSort ONLY has one method called "mergeSort".
+ * The other method shown bellow is the separate methods of the method "mergeSort"
+ * @author asus
+ *
+ */
+public class MergeSort{
 	public static void main(String[]arg) {
 		int[]array = {15,24,52,9,65,30,37,98,27,46};
 		int a = array.length;
@@ -25,14 +31,17 @@ public class margeSort{
 			return;
 		mergeSort(array, workSpace,left, mid);
 		mergeSort(array, workSpace, mid+1, right);
-		for(int i = left; i<=right;i++) 
+		
+		//compare and merge using workspace
+		for(int i : array) 
 			workSpace[i] = array[i];//copies entire array into workspace
-		int i1 = left;
-		int i2 = right;
+		
+		int i1 = left;//"0" index of 1st part
+		int i2 = mid+1;//"0" index of 2nd part
 		for(int j = left; j<=right; j++) {
-			if(i1>mid)//left halve has been empty,copy all remnants
+			if(i1>mid)//1st halve has been empty,copy all remnants of 2nd halve
 				array[j] = workSpace[i2++];
-			else if(i2>right)
+			else if(i2>right)//2nd halve has been empty,copy all remnants of 1st halve
 				array[j] = workSpace[i1++];
 			else if(workSpace[i1]>workSpace[i2])
 				array[j] = workSpace[i2++];//merge and back
